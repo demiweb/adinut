@@ -4,6 +4,93 @@
   }
   //
 
+  //
+  .checkout-thanks .address {
+    margin-top: 3.8462vw;
+
+    .form-field {
+      font-size: 3.5897vw;
+
+      a {
+        font-size: 4.1026vw;
+      }
+    }
+  }
+  .checkout-thanks .woocommerce-table tr td, .checkout-thanks .woocommerce-table tr th {
+    font-size: 3.5897vw;
+    line-height: 1.2;
+    width: 50%;
+    padding: 2.5641vw;
+
+    a {
+      font-size: 3.5897vw;
+      line-height: 1.2;
+    }
+  }
+  .checkout-thanks .woocommerce-table thead tr th {
+    font-size: 4.1026vw;
+  }
+  .checkout-thanks {
+    max-width: 100%;
+    width: 100%;
+
+    .woocommerce-notice {
+      font-size: 5.6410vw;
+      line-height: 1.2;
+      margin-bottom: 2.5641vw;
+    }
+
+    .woocommerce-order-details__title {
+      font-size: 6.1538vw;
+      line-height: 1.2;
+      margin-bottom: 2.5641vw;
+    }
+
+    .woocommerce-order-details {
+      margin-top: 3.8462vw;
+    }
+
+    .woocommerce-order-overview {
+      flex-wrap: wrap;
+      width: 100%;
+
+      li {
+        width: 50%;
+        padding: 2.5641vw;
+        border-bottom: 1px dashed $main-color;
+        border-left: 1px dashed $main-color;
+
+        font-size: 3.5897vw;
+
+        strong {
+          font-size: 4.1026vw;
+        }
+
+        &:nth-child(even) {
+          border-left: none;
+        }
+
+        &:nth-child(3), &:nth-child(4) {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+
+  .search-results {
+    padding: 6.4103vw 0;
+
+    .catalog-list {
+      gap: 4.1026vw;
+
+      .product-item {
+        width: calc(50% - 2.0513vw);
+      }
+    }
+  }
+
+
   .checkout-footer {
     height: 35.8974vw;
     align-items: flex-end;
@@ -248,7 +335,7 @@
     padding: 5.1282vw 0;
   }
 
-  //
+
   .item-tab {
     margin-top: 3.8462vw;
   }
@@ -823,7 +910,7 @@
         line-height: 1.2;
       }
 
-      span {
+      span, h2 {
         font-size: 4.1026vw;
         line-height: 1.2;
         margin-top: 2.5641vw;
@@ -1073,7 +1160,7 @@
       align-items: center;
       max-width: 100%;
 
-      span {
+      span, h2 {
         font-size: 4.6154vw;
         line-height: 1.2;
         text-align: center;
@@ -1091,6 +1178,11 @@
           font-size: 4.1026vw;
           line-height: 1.2;
         }
+      }
+
+      h3 {
+        font-size: 4.1026vw;
+        line-height: 1.2;
       }
     }
 
@@ -1212,6 +1304,7 @@
     width: calc(100% / 3);
     border-left: 1px solid #84776E;
     height: 10.2564vw;
+    border-radius: 0;
 
     &.active {
       span {
@@ -1885,7 +1978,7 @@
 
     .log-foot {
       width: 51.0256vw;
-      height: 42.0513vw;
+      height: auto;
     }
   }
   .footer-top {

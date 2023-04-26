@@ -92,7 +92,7 @@
                 <p><strong id="title"></strong> updated <span class="date" id="DATE">25.04.2023</span>, <small></small>
                     pages</p>
             </div>
-            <div class="type-of-size">
+            <div class="type-of-size" style="display: none">
                 <ul>
                     <li>
                         <a href="" data-width="360">
@@ -148,7 +148,7 @@
 
         </div>
         <div class="page-content">
-            <div class="iframe-block" id="frame">
+            <div class="iframe-block" id="frame" style="display: none">
                 <iframe id="frame-frame" width="1920" height="1033" src="" frameborder="0"></iframe>
 
             </div>
@@ -166,7 +166,7 @@
     var iframe = document.getElementById('frame-frame');
     var body = document.querySelectorAll('body')[0];
     var previewWrapper = document.getElementById('frame');
-    let pagesArr = ['home', 'catalog', 'product', 'brand', 'contact-us', 'about', 'blog', 'article', 'login', 'register', 'forgot-password', 'personal-page', 'cart', 'checkout'];
+    let pagesArr = ['home', 'catalog', 'product', 'brand', 'contact-us', 'about', 'blog', 'article', 'login', 'register', 'forgot-password', 'personal-page', 'cart', 'checkout', 'checkout-thanks', 'search-results'];
 
     let pgList = document.querySelector('.page-list ol');
 
@@ -183,8 +183,8 @@
             }
 
             li.innerHTML = `
-                    <a href="./${pg}.html">${pg}</a>
-                    <a href="./${pg}.html" class="link">
+                    <a href="./${pg}.html" target="_blank">${pg}</a>
+                    <a href="./${pg}.html" target="_blank" class="link">
                         <svg class="icon icon-link">
                             <use xlink:href="#icon-link"></use>
                         </svg>
@@ -247,37 +247,37 @@
         });
     }
 
-    [].forEach.call(previewButtons, function (button) {
-        button.addEventListener('click', function (event) {
-
-            if (window.innerWidth < 780) {
-                return;
-            }
-            event.preventDefault();
-            removeActive();
-            var el = event.currentTarget;
-            el.closest('li').classList.add('active');
-            iframe.src = el.href;
-        }, false);
-    });
+    // [].forEach.call(previewButtons, function (button) {
+    //     button.addEventListener('click', function (event) {
+    //
+    //         if (window.innerWidth < 780) {
+    //             return;
+    //         }
+    //         event.preventDefault();
+    //         removeActive();
+    //         var el = event.currentTarget;
+    //         el.closest('li').classList.add('active');
+    //         iframe.src = el.href;
+    //     }, false);
+    // });
 
     var mode = 'wide';
     [].forEach.call(navs, function (nav) {
-        nav.addEventListener('click', function (event) {
-            event.preventDefault();
-            mode = event.currentTarget.dataset.mode;
-            iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
-
-            body.setAttribute('data-mode', 'is-' + mode);
-
-
-            [].forEach.call(navs, function (nav) {
-                nav.classList.remove('active');
-            })
-            event.currentTarget.classList.add('active');
-
-            setIframeWidth();
-        }, false);
+        // nav.addEventListener('click', function (event) {
+        //     event.preventDefault();
+        //     mode = event.currentTarget.dataset.mode;
+        //     iframe.style.width = parseInt(event.currentTarget.getAttribute('data-width')) + parseInt(scrollbarwidth) + 'px';
+        //
+        //     body.setAttribute('data-mode', 'is-' + mode);
+        //
+        //
+        //     [].forEach.call(navs, function (nav) {
+        //         nav.classList.remove('active');
+        //     })
+        //     event.currentTarget.classList.add('active');
+        //
+        //     setIframeWidth();
+        // }, false);
 
         function setIframeWidth() {
             // getting preview area width
