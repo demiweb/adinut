@@ -62,6 +62,61 @@ $(window).scroll(function (e) {
 
 
 
+// scroll animations
+var anim = document.querySelectorAll('.anim')
+
+function scrollAnimations() {
+    if (anim.length) {
+        var observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                var el = entry.target;
+                if (entry.isIntersecting) {
+                    if (el.classList.contains('anim-js')) {
+
+                    } else {
+                        el.style.animationDelay = el.dataset.animDelay + 'ms';
+                        el.style.animationDuration = el.dataset.animDuration + 'ms';
+                        el.style.animationName = el.dataset.anim;
+                    }
+                    el.classList.add('done');
+                    let txt = el.dataset.txt;
+                    observer.unobserve(entry.target);
+                    if (el.classList.contains('tel')) {
+                        codecForTxt2(el, txt);
+                    } else {
+                        if (el.classList.contains('type')) {
+                            codecForTxt3(el, txt);
+                        } else {
+                            codecForTxt(el, txt);
+                        }
+
+                    }
+
+
+
+
+                }
+
+            })
+        }, {threshold: .5});
+        if (window.innerWidth > 991) {
+            anim.forEach(animate => {
+                observer.observe(animate)
+            })
+        } else {
+
+            anim.forEach(animate => {
+
+                observer.observe(animate)
+
+
+            })
+        }
+    }
+}
+
+scrollAnimations();
+
 
 let menuControl = [...document.querySelectorAll('.menu-item-has-children > a')];
 
@@ -576,3 +631,5 @@ function upValueQuant() {
 }
 
 upValueQuant();
+
+
