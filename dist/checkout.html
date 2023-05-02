@@ -187,7 +187,7 @@
                           fill="#584940"/>
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M199.645 199.42C176.913 236.204 169.06 250.67 157.487 257.696C146.328 264.309 131.449 263.483 97.1442 270.922C-11.1428 293.241 7.04275 569.331 135.995 517.254C178.979 499.895 183.939 403.181 268.667 466.004C309.172 495.762 331.077 548.666 373.648 517.254C406.713 492.456 385.221 437.486 406.713 385.822C443.497 296.961 419.112 244.47 374.475 210.166C316.611 165.528 225.27 157.262 199.645 199.42Z"
-                          fill="#C5D7DF"/>
+                          fill="#C5D6DE"/>
                     <path fill-rule="evenodd" clip-rule="evenodd"
                           d="M276.107 216.365C202.125 203.553 221.137 320.106 269.494 361.437C299.666 387.062 364.555 369.29 364.555 323.412C364.555 274.642 319.918 223.805 276.107 216.365Z"
                           fill="#F6F2EE"/>
@@ -263,6 +263,105 @@
 <script type="text/javascript" src="https://unpkg.com/smooth-scrollbar@latest/dist/smooth-scrollbar.js"></script>
 <script type="text/javascript" src="https://unpkg.com/smooth-scrollbar@latest/dist/plugins/overscroll.js"></script>
 <script type="text/javascript" class="main-script" src="./js/scripts.min.js"></script>
+
+
+<div class="modal-window" data-popop="slider">
+    <div class="backplate">
+
+    </div>
+    <div class="modal-container">
+        <div class="modal-close">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="modal-cont">
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    let popsSlides = [...document.querySelectorAll('.pop-image')];
+    let popSlider = [...document.querySelectorAll('.modal-cont .popup-inner-cont')];
+
+
+    function openModalPops() {
+        if (popsSlides.length) {
+
+            let modalSlider = document.querySelector('.modal-window[data-popop="slider"]');
+            let mdCont = modalSlider.querySelector('.modal-cont');
+            modalSlider.querySelector('.backplate').addEventListener('click', () => {
+                modalSlider.classList.remove('visible');
+                document.body.classList.remove('no-scroll');
+                mdCont.innerHTML = '';
+            });
+            modalSlider.querySelector('.modal-close').addEventListener('click', () => {
+                modalSlider.classList.remove('visible');
+                document.body.classList.remove('no-scroll');
+                mdCont.innerHTML = '';
+            });
+
+            popsSlides.forEach((btn, k) => {
+                let btnSld = btn.querySelector('.popup-inner-cont').cloneNode(true);
+
+
+                btn.addEventListener('click', () => {
+
+                    modalSlider.classList.add('visible');
+                    document.body.classList.add('no-scroll');
+                    mdCont.appendChild(btnSld);
+                    popSlider = [...document.querySelectorAll('.modal-cont .popup-inner-cont')];
+                    startPopSlider();
+                })
+            })
+        }
+    }
+
+    openModalPops();
+
+
+    function startPopSlider() {
+        if (!popSlider.length) {
+
+        } else {
+
+
+            popSlider.forEach((sld) => {
+                let sldCont = sld.querySelector('.swiper');
+
+                let sldNext = sld.querySelector('.arr_right');
+                let sldPrev = sld.querySelector('.arr_left');
+
+                const swiper2 = new Swiper(sldCont, {
+                    // Optional parameters
+                    loop: false,
+                    slidesPerView: 1,
+                    slidesPerGroup: 1,
+                    speed: 700,
+                    centeredSlides: false,
+
+                    autoplay: false,
+                    spaceBetween: 14,
+
+                    navigation: {
+                        nextEl: sldNext,
+                        prevEl: sldPrev,
+                    },
+
+
+                });
+
+
+            })
+        }
+
+
+    }
+
+
+</script>
 
 
 </body>

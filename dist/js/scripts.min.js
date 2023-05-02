@@ -82,12 +82,9 @@ function scrollAnimations() {
                     let txt = el.dataset.txt;
                     observer.unobserve(entry.target);
                     if (el.classList.contains('tel')) {
-                        codecForTxt2(el, txt);
                     } else {
                         if (el.classList.contains('type')) {
-                            codecForTxt3(el, txt);
                         } else {
-                            codecForTxt(el, txt);
                         }
 
                     }
